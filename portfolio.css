@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 100%;
+    height: 100%;
+}
+
+html body{
+    height: 100%;
+    margin: 0;
+}
+
+/* Main */
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+main h3{
+    padding: 1rem;
+    font-size: 25px;
+}
+
+main p{
+    font-size: 18px;
+}
+
+/* Project */
+
+.project-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-main p{
+    padding: 1rem;
+}
+
+.project-main img{
+    width: 70%;
+    height: auto;
+}
+
+.mental-health-img{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 800px){
+
+}
