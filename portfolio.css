@@ -1,0 +1,180 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header styling (empty for now but can be used later) */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #005f73;
+    color: white;
+    text-align: center;
+}
+
+header a.nav {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+header a.nav:hover {
+    text-decoration: underline;
+}
+
+/* Main container */
+.main-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Page title */
+.main-index h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Project container */
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    background-color: white;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Project title */
+.project h3 {
+    background-color: #005f73;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+/* Project image */
+.project img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Main container */
+.project-main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-main h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.project-main h2 {
+    color: #005f73;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.project-main p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.project-main ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.project-main li {
+    margin-bottom: 10px;
+}
+
+/* Image styling */
+.project-main img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Preprocessing and Data sections */
+.preprocessing, .data, .Modeling, .results, .impact, .Code, .References {
+    margin-bottom: 40px;
+}
+
+/* Links */
+a {
+    color: #005f73;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Reference List Styling */
+.References ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.References ul li {
+    margin-bottom: 8px;
+}
+
+/* Anchor links to make entire project clickable */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive styling */
+@media (min-width: 768px) {
+    .main-index {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    .project-main {
+        max-width: 1000px;
+        padding: 40px;
+    }
+}

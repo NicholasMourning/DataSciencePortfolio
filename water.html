@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<header> 
+    <a class="nav" href="index.html">home</a>
+</header>
+<main class="project-main">
+    <body>
+        <h1>Project 2 : Water Testing</h1>
+        <h2>Introduce the Problem:</h2>
+        <p>The world lives on water, life is created from it and yet clean and safe drinking water remains a scarce resource for millions of people around the world. In many developing countries access to clean drinking water is a daily challenge something people in 3rd world countries often take for granted. With this dataset the aim is to create a model through various tests on water's chemical properties that can tell if water is drinkable or not. </p>
+        <h2>Introduce the data</h2>
+        <p>The dataset that I am using to create the models is the Water Quality classification database conducted by ADITYA KADIWA non profit organization with 10 features and 3,276 samples. I found the dataset on the Kaggle website: <a href="https://www.kaggle.com/datasets/adityakadiwal/water-potability">Water Quality</a>.</p>
+        <p>Features:</p>
+        <ul>
+            <li>pH: Measures water's acidity</li>
+            <li>Hardness: Calcium and magnesium levels</li>
+            <li>Solids: Diluted solids in water</li>
+            <li>Chloramines: Compounds used for disinfection</li>
+            <li>Sulfate: Can indicate industrial contamination</li>
+            <li>Conductivity: Water's ability to pass electrical flow</li>
+            <li>Organic Carbon: Carbon-based compounds, often indicative of organic material in water</li>
+            <li>Trihalomethanes: By-products of chlorination</li>
+            <li>Turbidity: Cloudiness of the water</li>
+            <li>Potability 0 = Not Potable 1 = Potable</li>
+
+        </ul>
+        <div class="preprocessing">
+            <h2>Pre processing</h2>
+                <p>Missing Values: First I found out all of the missing values in the columns using .isna().sum() on the database. That resulted in revealing that ph, sulfate, and Trihalomethanes all had missing values. To compensate for this problem we filled their respective mean values in the missing data to prevent disproportions in the data within a new database called w_cleaned_df.</p>
+                <img src="/images/project2/num_values.png">
+                <p>Scaling: Next I imported StandardScaler to standardize the data to make sure the algorithm works well. Standardizing the data is important in this case because I am using algorithms that calculate distance between different data points and the data might become biased because the different factors have a wide range of values.</p>
+                <img src="/images/project2/scaler.png">
+                <p>Train-Test-Split: For the models to function they need training data. If the goal is to train the models to find out if water is potable or not we split the data up based on that column. Then used sklearn to divide the data into training sets and testing sets. I set a random state parameter so that results remain consistent.</p>
+                <img src="/images/project2/train_test.png">
+        </div>
+        
+        <div class="data">
+            <h2>Data Understanding/Visualization</h2>
+            <p>The Results of our data is as follows:</p>
+            
+            <img src="/images/project2/accuracy.png">
+            <p>A visualization of the accuracy score of the models used.</p>
+            
+            <img src="/images/project2/f1_score.png">
+            <p>A visualization of the F1-score of the models used.</p>
+            
+            <img src="/images/project2/confusion_matrix.png">
+            <p>A visualization of each confusion Matrix of the models used.</p>
+
+            <p>Visualizing the data in such a way helps get a better understanding of which model performed the best and where there might be outliers in the data. </p>
+        </div>
+
+        <div class="Modeling">
+            <h2>Modeling</h2>
+            <h3>Models Used:</h3>
+            <ul>
+                <li>Decision Tree</li>
+                <li>Random Forest</li>
+                <li>Naive Bayes</li>
+                <li>K-Nearest Neighbors(KNN)</li>
+            </ul>
+
+            <h4>Decision Tree</h4>
+            <p>What is it: A supervised learning algorithm mainly used for classification and regression. It splits the data into different branches based on its value output.</p>
+            <P>How does it work: The algorithm picks the best features to split the data repeatedly until the final leaf of the branch is produced, which is the predicted outcome of whether it is potable or not.</P>
+            <p>Pros/Cons</p>
+            <ul>
+                <p>Pros</p>
+                <li>Easy to use and understand</li>
+                <li>A simple classification algorithm</li>
+                <p>Cons</p>
+                <li>Might overfit especially with larger datasets</li>
+                <li>Sensitive to changes in the data</li>
+            </ul>
+            <p>Why use it: I used it to get a broad understanding of my data. Knowing that my dataset is rather large I did not want to stop at just this data set but it helped me understand where my data might take me.</p>
+
+            <h4>Random Forest</h4>
+            <p>What is it:  A algorithm that combines multiple decision trees together to get multiple outputs to improve accuracy and to mitigate overfitting.</p>
+            <P>How does it work: The algorithm uses many different decision trees with different features of the dataset predicting based on majority.</P>
+            <p>Pros/Cons</p>
+            <ul>
+                <p>Pros</p>
+                <li>Reduces overfitting from decision trees</li>
+                <li>Better with larger datasets</li>
+                <p>Cons</p>
+                <li>Not as simple and harder to visualize</li>
+                <li>More computing power</li>
+            </ul>
+            <p>Why use it: Since I liked how decision trees worked but didn’t like its inaccuracy I decided to use its more powerful big brother, Random Forest. It makes up for what decision trees are lacking and gives you better results.</p>
+
+            <h4>Naive Bayes</h4>
+            <p>What is it: A Classification algorithm with the assumption that all features are independent and creates a model with that thought in mind.</p>
+            <P>How does it work: It calculates the probability based on Bayes’ Theorem predicting based on the conditional probability.</P>
+            <p>Pros/Cons</p>
+            <ul>
+                <p>Pros</p>
+                <li>Fast and efficient</li>
+                <li>Works well with large datasets when features are independent                </li>
+                <p>Cons</p>
+                <li>Features have to be independent for accuracy</li>
+            </ul>
+            <p>Why use it: I wanted to branch off of how decision trees and random forest work and get a different interpretation of my data. So I used this model for a quick evaluation of my data with a different interpretation.</p>
+
+            <h4>K-Nearest Neighbors(KNN)</h4>
+            <p>What is it: A classification algorithm that classifies new samples in the dataset with the majority vote of the ‘nearest neighbor’ the neighbor being ‘k’ which is a chosen data point by me.
+            <P>How does it work: The algorithm finds the nearest neighbors of k based on calculating distance and taking a majority vote.</p></P>
+            <p>Pros/Cons</p>
+            <ul>
+                <p>Pros</p>
+                <li>A simple concept                </li>
+                <li>No assumptions on the data</li>
+                <p>Cons</p>
+                <li>Heavily reliant on the choice of K</li>
+                <li>Uses distance to calculate so standardization is needed for accurate results</li>
+            </ul>
+            <p>Why use it: Similar to why I used Naive Bayes was to have a different interpretation of the data with a more simplistic interpretation compared to random forest.</p>
+        </div>
+
+        <div class="results">
+                <h2>Evaluation</h2>
+                <p>Metrics Used to Evaluate:</p>
+                <ul>
+                    <li>Accuracy: Used for its overall and simplistic interpretation of the results</li>
+                    <li>F1 Score: Used to compensate for unbalanced data.</li>
+                    <li>Confusion: Used for its diverse breakdown of the results interpretation of true positives, false positives, true negatives, and false negatives, this evaluation is very vital to solve my problem because false positives would cause negative health effects.</li>
+                </ul>
+                <h3>Results</h3>
+                <p>Decision Tree: Accuracy = 65%, F1 Score = 0.27</p>
+                <p>Random Forest: Accuracy = 68%, F1 Score = 0.48</p>
+                <p>Naive Bayes: Accuracy = 63%, F1 Score = 0.30</p>
+                <p>KNN: Accuracy = 55%, F1 Score = 0.34</p>
+            <p>Based on all of the Evaluations the Random Forest classifier outperformed all other models. However the accuracy scores are very low for what we want our model to do. This is possibly due to the fact that the potability column was imbalanced with 1998 falses and 1278 trues. If I had to go back and fix parts of the project I would find a different database with less imbalance on the target value or find out on how to fix the data in preprocessing.</p>
+            </div>
+    
+            <div class="impact">
+                <h2>Storytelling and Impact</h2>
+                <p>Throughout this project we set out to tackle the global problem of insufficient drinking water. We did this by testing many different models with features that contribute to water's potability. Using Decision Trees, Random Forest, K-Nearest Neighbors, and Naive Bayes it gave me a better understanding of the models and its strengths and weaknesses. The Random Forest model gives us the best results of 68% accuracy. While this is a good starting point of understanding which model to use to solve the problem there is still work to be done to get an accurate model. Overall there is still progress to be made in order to answer the question of accurately creating a model that can determine drinkable water.</p>
+                <p>The impact of this project can be used in tools to create purified drinking water for people all over the world. </p>
+            </div>
+    
+            <div class="Code">
+                <h2>Code:</h2>
+                <p>Here is all the code from my project: <a href="Project2_Code.html">code</a></p>
+            </div>
+            
+            <div class="References">
+                <h2>References</h2>
+                <ul>
+                    <li>Class Material</li>
+                    <li>Stack Overflow</li>
+                    <li>Sklearn Documentation</li>
+                    <li>ChatGPT: Used for some grammer correct and debugging of code and to get an understanding on how different models work.</li>
+                </ul>
+            </div>
+    </body>
+</main>
+
+</html>
