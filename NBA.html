@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Salary Prediction</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<header> 
+    <a class="nav" href="index.html">home</a>
+</header>
+<main class="project-main">
+    <body>
+        <h1>Project: NBA Salary Prediction</h1>
+
+        <h2>Introduce the Problem</h2>
+        <p>For this project, I am going to be using linear regression to predict an NBA player's salary using features such as points, assists, rebounds, and games played. This model will also help understand what are valuable features of a player.</p>
+
+        <h2>Introduce the Data</h2>
+        <p>For the data used to create the model, I am using a database from Kaggle titled “NBA Players Performance and Salaries” found here: <a href="https://www.kaggle.com/datasets/thedevastator/exploring-nba-player-performance-and-salaries-19">NBA Players Performance and Salaries</a>.</p>
+
+        <div>
+            <h2>What is Regression?</h2>
+            <p>Linear regression is a machine learning strategy that is used to create a model that can predict a target variable using independent variables or features. It predicts our target variable based on the equation of a linear line. </p>
+            <h3>y= mx + b</h3>
+            <ul>
+                <li>Y = the target variable we are looking for
+                </li>
+                <li>X = is the independent variables or features
+                </li>
+                <li>M = is the slope of the line
+<p>Calculated from using the least squares method</p>
+</li>
+                <li>B = is the intercept <p>Calculated using the slope found</p></li>
+
+            </ul>
+        </div>
+
+        <h1>Experiment 1</h1>
+
+        <div class="preprocessing">
+            <h2>Pre-processing</h2>
+            <p>The data was split into two datasets, one called 'players' with all the player stats and one called 'salaries' with all the player salaries. I merged the two datasets on their 'player_id' to create one dataset.</p>
+            <p>Next, I dropped all the columns with null features because they were not needed for this dataset. Then, I split the data between <code>X</code> (the features used for prediction) and <code>y</code> (the target, which is the salary).</p>
+            <img src="images/project3/preprocessingpart2-3.png">
+        </div>
+
+        <div class="data">
+            <h2>Data Understanding/Visualization</h2>
+            <p>Before creating the linear regression model I used the scatter plot for an idea of what independent variables I should be using to see if there was already some sort of correlation showing through a linear line from the graph. </p>
+            <p>Here are some examples of scatter plots I created:</p>
+            <img src="images/project3/dataVisualization1.png">
+            <img src="images/project3/dataVisualization2.png">
+        </div>
+
+        <div class="Modeling">
+            <h2>Modeling</h2>
+            <p>Using the LinearRegression model to predict player salaries based on player statistics.</p>
+            <img src="images/project3/model3.png">    
+            </div>
+
+        <div class="evaluation">
+            <h2>Evaluation</h2>
+            <p>From the model, we achieved a score of 0.26. The most important feature contributing to this score was 'rebounds,' indicating that rebounds are a desirable trait in determining player salary.</p>
+        </div>
+
+        <div>
+            <h1>Experiment 2</h1>
+            <p>My last experiment I had really bad scores so in this one I wanted to switch around my preprocessing and see where I could fix my data and clean it better. </p>
+            <p>I used the sklearn StandardScaler this time on my data to prevent inconsistencies with my data due to different scale of numbers:</p>
+            <img src="images/project3/StandardScaler.png" alt="Standard Scaler Picture">
+            <p>Results were slightly different but still very much the same with the scaler.
+            </p>
+        </div>
+
+    <div>
+        <h1>Experiment 3</h1>
+        <p>For my final experiment I decided to build on all the other experiments and try to really get a model that was accurate. So for this last experiment I switched up the features I was using, instead of using select features I dropped certain features that would not work but used all the rest. </p>
+        <p>Old feature set:</p>
+        <img src="images/project3/OldData.png" alt="Old features">
+        <p>New feature set:</p>
+        <img src="images/project3/NewData.png" alt="Different features">
+        <p>This got me drastically better results with an actual usable model coming in with a rmse of 4.887643689475138.</p>
+        <p>With a new most profitable skill of career_eFG%: Career effective field goal percentage of the player.</p>
+    </div>
+
+        <div class="impact">
+            <h2>Storytelling and Impact</h2>
+            <p>Potential impacts of this project could affect the NBA and how basketball could be played. With an understanding of what would cause a players salary in the nba players could possibly focus on different areas of their game and develop more profitable skills. With players focusing on more profitable skills and the NBA being one of the most or not the most watched form of basketball this model has the potential to not only change the way the players play the sport but how the world plays the sport.</p>
+        </div>
+
+        <div>
+            <h2>Conclusion</h2>
+            <p>This project was difficult for me because it was hard to pinpoint what was causing my model to be so inaccurate. I used different tactics like standardScaling and choosing different features to create a better model. This took up most of my time when creating my project but when I did figure it out it gave me a better understanding of the importance of preprocessing and understanding the data I am using.</p>
+        </div>
+
+        <div class="Code">
+            <h2>Code</h2>
+            <ul>
+                <li>
+                    <a href="project3Code/Experiment1.html">Experiment 1</a>
+                </li>
+                <li>
+                    <a href="project3Code/Experiment2.html">Experiment 2</a>
+                </li>
+                <li>
+                    <a href="project3Code/Experiment3.html">Experiment 3</a>
+                </li>
+                
+               
+            </ul>
+
+        </div>
+        
+        <div class="References">
+            <h2>References</h2>
+            <ul>
+                <li>Kaggle Dataset: <a href="https://www.kaggle.com/datasets/thedevastator/exploring-nba-player-performance-and-salaries-19">NBA Players Performance and Salaries</a></li>
+                <li>Class Material</li>
+                <li>Stack Overflow</li>
+                <li>Sklearn Documentation</li>
+            </ul>
+        </div>
+    </body>
+</main>
+</html>
