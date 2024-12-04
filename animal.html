@@ -3,9 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>K-means Clustering with Zoo Dataset</title>
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    
+    <header> 
+        <a class="nav" href="index.html">home</a>
+    </header>
+    <main class="project-main">
+        <h1>Project 4: K-means Clustering with Zoo Dataset</h1>
+        
+        <h2>Introduce the Problem</h2>
+        <p>For this project, we aim to categorize different animals based on their characteristics using clustering. The goal is to identify distinct groups or clusters within the animal kingdom. We seek to answer questions such as: What natural groupings exist among these animals? How can clustering help in understanding animal traits and their relationships?</p>
+        
+        <h2>What is Clustering and How Does It Work?</h2>
+        <p>Clustering is an unsupervised machine learning technique that groups data points into clusters based on their similarities. The K-means algorithm is a popular clustering method, where "K" is the number of clusters predefined by the user. The algorithm works as follows:</p>
+        <ul>
+            <li><strong>Initialization:</strong> Select K initial centroids randomly.</li>
+            <li><strong>Assignment:</strong> Assign each data point to the nearest centroid, forming K clusters.</li>
+            <li><strong>Update:</strong> Calculate the new centroids by taking the mean of all data points assigned to each centroid.</li>
+            <li><strong>Iteration:</strong> Repeat the assignment and update steps until the centroids no longer change significantly.</li>
+        </ul>
+
+        <h2>Introduce the Data</h2>
+        <p>The dataset used is titled “Zoo Animals Classification” from Kaggle, which can be found <a href="https://www.kaggle.com/uciml/zoo-animal-classification">here</a>. The dataset includes various features of animals such as:</p>
+        <ul>
+            <li><strong>animal_name:</strong> The name of the animal.</li>
+            <li><strong>hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, legs, tail, domestic, catsize, class_type:</strong> Various attributes that describe the animal.</li>
+        </ul>
+
+        <div class="preprocessing">
+            <h2>Data Understanding/Visualization</h2>
+            <p>To understand and visualize the data, we start with a quick examination of the dataset. The heatmap helps us see the relationships between different features, guiding us in understanding how they might influence our clustering model.</p>
+            <img src="images/project4/heatmap.png" alt="Correlation Heatmap">
+        </div>
+        
+        <div class="preprocessing">
+            <h2>Pre-processing the Data</h2>
+            <p>Pre-processing is crucial to ensure our data is clean and ready for modeling:</p>
+            <ul>
+                <li><strong>Remove Non-Numeric Columns:</strong> Drop the <code>animal_name</code> column as it is not needed for clustering.</li>
+                <li><strong>Standardize the Data:</strong> Use <code>StandardScaler</code> to standardize features for uniformity.</li>
+            </ul>
+            <img src="images/project4/standardized_data.png" alt="Standardized Data">
+        </div>
+        
+        <div class="modeling">
+            <h2>Modeling (Clustering)</h2>
+            <p>We use the K-means algorithm to cluster the animals. The elbow method helps determine the optimal number of clusters by plotting the inertia (sum of squared distances to the nearest centroid).</p>
+            <img src="images/project4/elbow_method.png" alt="Elbow Method">
+            <p>We then fit the K-means model with the chosen number of clusters.</p>
+            <img src="images/project4/clustering_visualization.png" alt="K-means Clusters">
+        </div>
+        
+        <div class="results">
+            <h2>Storytelling (Clustering Analysis)</h2>
+            <p>Using PCA for dimensionality reduction, we visualize the clusters. The clusters reveal patterns and similarities among the animals, answering our initial question of how animals can be grouped based on their traits.</p>
+            <img src="images/project4/clustering_visualization.png" alt="K-means Clustering Visualization">
+            <p>The silhouette score of 0.3997 indicates moderate clustering performance.</p>
+        </div>
+        
+        <div class="impact">
+            <h2>Impact Section</h2>
+            <p>The project’s impact spans biological classification and conservation efforts. By understanding animal groupings, researchers and zoologists can better design conservation strategies, identify species at risk, and promote biodiversity.</p>
+        </div>
+        
+        <div class="code">
+            <h2>Code</h2>
+            <p>The full code for this project can be found <a href="Project4.html">here</a>.</p>
+        </div>
+        
+        <div class="references">
+            <h2>References</h2>
+            <ul>
+                <li>Kaggle Dataset: <a href="https://www.kaggle.com/uciml/zoo-animal-classification">Zoo Animals Classification</a></li>
+                <li>Sklearn Documentation</li>
+                <li>Microsoft copilot: Used to understand syntax and data comprehension</li>
+                <li>Class Material</li>
+            </ul>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
